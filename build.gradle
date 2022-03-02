@@ -41,12 +41,14 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	//h2 database
 	runtimeOnly 'com.h2database:h2'
+	//sql server
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.2'
+	implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '6.1.0.jre7'
 	//lombok
 	annotationProcessor 'org.projectlombok:lombok'
 	//swagger
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-	implementation 'io.swagger.core.v3:swagger-annotations:2.1.12'
 	implementation group: 'com.google.guava', name: 'guava', version: '11.0.2'
 
 	//javax
@@ -55,6 +57,3 @@ dependencies {
 
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
