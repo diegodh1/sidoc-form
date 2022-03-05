@@ -1,12 +1,11 @@
 package co.integrapps.services.adapters.web;
 
-import co.integrapps.services.adapters.persistence.JpaInvoiceToNegotiateEntity;
-import co.integrapps.services.adapters.web.dto.ResponseInvoiceToNegotiateDto;
-import co.integrapps.services.application.port.in.GetInvoicesToNegotiateUseCase;
+import co.integrapps.services.adapters.persistence.JpaNegotiatedInvoiceEntity;
+import co.integrapps.services.adapters.web.dto.RequestNegotiateInvoicesDto;
+import co.integrapps.services.application.port.in.GetNegotiatedInvoiceUseCase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,25 +15,24 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Api(value = "invoices controller")
-@RequestMapping("/invoices")
+@Api(value = "negotiated invoices controller")
+@RequestMapping("invoices/negotiated")
 @Validated
-public class GetInvoiceToNegotiateController {
+public class GetNegotiatedInvoiceController {
     @Autowired
-    private GetInvoicesToNegotiateUseCase getInvoicesToNegotiateService;
+    private GetNegotiatedInvoiceUseCase getNegotiatedInvoiceService;
 
-    @Cacheable(value="invoices to negotiate")
     @ApiOperation(
             httpMethod = "GET",
-            value = "get all invoices to negotiate",
+            value = "get all the negotiated invoices",
             response = List.class
     )
     @RequestMapping(
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseInvoiceToNegotiateDto getAllInvoices(){
-
-        return new ResponseInvoiceToNegotiateDto(getInvoicesToNegotiateService.getAllInvoices());
+    public RequestNegotiateInvoicesDto getAllNegotiatedInvoices(){
+        return new RequestNegotiateInvoicesDto(getNegotiatedInvoiceService.getAllNegotiatedInvoice());
     }
+
 }
