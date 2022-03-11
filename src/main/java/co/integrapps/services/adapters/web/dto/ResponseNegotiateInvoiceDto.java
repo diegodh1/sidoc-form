@@ -12,5 +12,4 @@ import lombok.NoArgsConstructor;
 public class ResponseNegotiateInvoiceDto {
     private String message;
     private String error;
-    private Object payload;
 }

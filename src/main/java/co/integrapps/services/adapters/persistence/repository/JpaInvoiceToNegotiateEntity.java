@@ -1,5 +1,6 @@
-package co.integrapps.services.adapters.persistence;
+package co.integrapps.services.adapters.persistence.repository;
 
+import co.integrapps.services.adapters.persistence.CientificNotationMapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -44,7 +45,7 @@ public class JpaInvoiceToNegotiateEntity implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date receptionDate;
     @JsonProperty("net_amount")
-    @JsonSerialize(using=CientificNotationMapper.class)
+    @JsonSerialize(using= CientificNotationMapper.class)
     private Float netAmount;
     @JsonProperty("tax_amount")
     @JsonSerialize(using=CientificNotationMapper.class)

@@ -1,6 +1,5 @@
 package co.integrapps.services.adapters.web;
 
-import co.integrapps.services.adapters.persistence.JpaInvoiceToNegotiateEntity;
 import co.integrapps.services.adapters.web.dto.ResponseInvoiceToNegotiateDto;
 import co.integrapps.services.application.port.in.GetInvoicesToNegotiateUseCase;
 import io.swagger.annotations.Api;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +19,7 @@ import java.util.List;
 @Api(value = "invoices controller")
 @RequestMapping("/invoices")
 @Validated
+@CrossOrigin("*")
 public class GetInvoiceToNegotiateController {
     @Autowired
     private GetInvoicesToNegotiateUseCase getInvoicesToNegotiateService;

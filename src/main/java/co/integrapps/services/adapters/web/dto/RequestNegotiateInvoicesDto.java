@@ -1,7 +1,6 @@
 package co.integrapps.services.adapters.web.dto;
 
-import co.integrapps.services.adapters.persistence.JpaNegotiatedInvoiceEntity;
-import co.integrapps.services.adapters.persistence.JpaNegotiatedInvoiceRepository;
+import co.integrapps.services.adapters.persistence.repository.JpaNegotiatedInvoiceEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

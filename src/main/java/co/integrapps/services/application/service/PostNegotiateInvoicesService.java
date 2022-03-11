@@ -1,14 +1,12 @@
 package co.integrapps.services.application.service;
 
-import co.integrapps.services.adapters.persistence.JpaNegotiatedInvoiceEntity;
-import co.integrapps.services.adapters.persistence.JpaNegotiatedInvoiceRepository;
+import co.integrapps.services.adapters.persistence.repository.JpaNegotiatedInvoiceEntity;
+import co.integrapps.services.adapters.persistence.repository.JpaNegotiatedInvoiceRepository;
 import co.integrapps.services.adapters.web.dto.ResponseNegotiateInvoiceDto;
 import co.integrapps.services.application.port.in.PostNegotiateInvoiceUseCase;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -25,12 +23,13 @@ public class PostNegotiateInvoicesService implements PostNegotiateInvoiceUseCase
                 invoice.setDisbursementDate(addOneDay(invoice.getDisbursementDate()));
                 invoice.setPaymentDateWithExtension(addOneDay(invoice.getPaymentDateWithExtension()));
                 invoice.setNegociationDate(addOneDay(invoice.getNegociationDate()));
+                invoice.setStatus("S");
+                invoice.setMessage("Registros recibidos almacenados con éxito");
             });
             List<JpaNegotiatedInvoiceEntity> result = negotiatedInvoiceRepository.saveAll(invoices);
             return ResponseNegotiateInvoiceDto
                     .builder()
                     .message("invoices negotiated successfully")
-                    .payload(result)
                     .build();
         }
         catch (Exception error){

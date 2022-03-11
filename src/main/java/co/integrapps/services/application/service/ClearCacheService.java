@@ -19,7 +19,7 @@ public class ClearCacheService {
                 .forEach(cacheName -> cacheManager.getCache(cacheName).clear());
     }
 
-    @Scheduled(fixedRate = 120000)
+    @Scheduled(fixedRate = 900000)
     public void evictAllcachesAtIntervals() {
         LOGGER.info("clear cache schedule");
         evictAllCaches();
