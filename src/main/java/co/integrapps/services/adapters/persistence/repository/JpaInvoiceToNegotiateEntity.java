@@ -14,12 +14,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "invoices_to_negotiate")
-@Getter
-@Setter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JpaInvoiceToNegotiateEntity implements Serializable {
     @Id
