@@ -1,11 +1,8 @@
 package co.integrapps.services.adapters.web;
 
 import co.integrapps.services.adapters.persistence.repository.JpaEncuestaSatisfaccion;
-import co.integrapps.services.adapters.web.dto.RequestNegotiateInvoicesDto;
 import co.integrapps.services.adapters.web.dto.ResponseEncuestasDto;
-import co.integrapps.services.adapters.web.dto.ResponseInvoiceToNegotiateDto;
 import co.integrapps.services.application.port.in.GetEstablecimientoUseCase;
-import co.integrapps.services.application.port.in.GetNegotiatedInvoiceUseCase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

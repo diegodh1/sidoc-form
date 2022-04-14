@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface JpaEncuestaProveedorRepository extends JpaRepository<JpaEncuestaProveedor,Integer> {
     List<JpaEncuestaProveedor> findAllByEncuesta(JpaEncuestaSatisfaccion encuestaSatisfaccion);
+    void deleteAllByEncuestaEncuestaId(Integer encuestaId);
 }

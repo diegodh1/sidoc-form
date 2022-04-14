@@ -2,7 +2,6 @@ package co.integrapps.services.adapters.web;
 
 import co.integrapps.services.adapters.persistence.repository.JpaEncuestaSatisfaccion;
 import co.integrapps.services.adapters.web.dto.ResponseEncuestaDto;
-import co.integrapps.services.adapters.web.dto.ResponseNegotiateInvoiceDto;
 import co.integrapps.services.application.port.in.PostCreateEncuestaUseCase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@Api(value = "invoices to negotiate controller")
+@Api(value = "create encuestra controller")
 @RequestMapping("/encuesta")
 @Validated
 @CrossOrigin("*")
@@ -23,7 +22,7 @@ public class PostCreateEncuestaController {
     @ApiOperation(
             httpMethod = "POST",
             value = "create encuesta",
-            response = ResponseNegotiateInvoiceDto.class
+            response = ResponseEncuestaDto.class
     )
     @RequestMapping(
             method = RequestMethod.POST,

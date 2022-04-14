@@ -42,6 +42,7 @@ public class JpaEncuestaSatisfaccion implements Serializable {
     private Double longitud;
     private Boolean vendeCemento;
     private Boolean fachadaCsm;
+    private Boolean virgen;
     private Boolean panaflex;
     @OneToMany(mappedBy="encuesta")
     private Set<JpaEncuestaProveedor> proveedores;
