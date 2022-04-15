@@ -1,5 +1,6 @@
 package co.integrapps.services.adapters.persistence.repository;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class JpaEncuestaSatisfaccion implements Serializable {
     private String encuestador;
     @CreationTimestamp
     @Column(updatable = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date fecha;
     private String barrido;
     private String microzona;

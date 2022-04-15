@@ -57,6 +57,10 @@ dependencies {
 	//javax
 	implementation 'javax.transaction:javax.transaction-api'
 	implementation 'javax.validation:validation-api'
+	//AWS
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.12.196'
+	implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.1000')
+	implementation 'com.amazonaws:aws-java-sdk-s3'
 
 }
 

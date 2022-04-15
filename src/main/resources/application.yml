@@ -1,0 +1,31 @@
+#Application properties
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+
+#AWS properties
+cloud:
+  aws:
+    region:
+      static: ${REGION:us-east-1}
+    stack:
+      auto: false
+    credentials:
+      accessKey: ${ACCESS_KEY:access_key}
+      secretKey: ${SECRET_KEY:secret_key}
+
+application:
+  bucket:
+    name: ${BUCKET_NAME:bucket_name}
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
