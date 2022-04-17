@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface JpaEncuestaSatisfaccionRepository extends JpaRepository<JpaEncuestaSatisfaccion,Integer> {
-    @Query("SELECT u FROM encuesta_satisfaccion u WHERE u.nombre like %?1%")
-    List<JpaEncuestaSatisfaccion> filterByName(String name);
+    @Query(value = "SELECT * FROM encuesta_satisfaccion u WHERE u.contacto like %:contacto% limit 10", nativeQuery = true)
+    List<JpaEncuestaSatisfaccion> filterByName(String contacto);
 }
