@@ -38,6 +38,7 @@ public class JpaEncuestaSatisfaccion implements Serializable {
     private String ciudad;
     private String barrio;
     private String direccion;
+    private String comuna;
     private String contacto;
     private String telefono;
     private Double latitud;

@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface JpaEncuestaSatisfaccionRepository extends JpaRepository<JpaEncuestaSatisfaccion,Integer> {
-    @Query(value = "SELECT * FROM encuesta_satisfaccion u WHERE u.contacto like %:contacto% limit 10", nativeQuery = true)
-    List<JpaEncuestaSatisfaccion> filterByName(String contacto);
+    @Query(value = "SELECT * FROM encuesta_satisfaccion u WHERE u.nombre like %:name% limit 10", nativeQuery = true)
+    List<JpaEncuestaSatisfaccion> filterByName(String name);
+
+    void deleteAllByEncuestaId(Integer encuestaId);
 }

@@ -23,6 +23,10 @@ public class GetInformationController {
     private GetMarcaProveedorUseCase marcaProveedor;
     @Autowired
     private GetModalidadesEntregaUseCase modalidadesEntrega;
+    @Autowired
+    private GetMicrozonaUseCase mirozona;
+    @Autowired
+    private GetProveedorUseCase proveedorService;
 
     @ApiOperation(
             value = "find all barridos",
@@ -64,5 +68,33 @@ public class GetInformationController {
     )
     public List<JpaModalidadEntrega> findAllModalidad(){
         return modalidadesEntrega.getAll();
+    }
+
+    @ApiOperation(
+            value = "find all microzonas",
+            response = List.class,
+            httpMethod = "GET"
+    )
+    @RequestMapping(
+            value = "/microzona",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<JpaMicrozona> findAllMicrozonas(){
+        return mirozona.getAll();
+    }
+
+    @ApiOperation(
+            value = "find all proveedores",
+            response = List.class,
+            httpMethod = "GET"
+    )
+    @RequestMapping(
+            value = "/proveedormarca",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<JpaProveedor> findAllProveedores(){
+        return proveedorService.getAll();
     }
 }
