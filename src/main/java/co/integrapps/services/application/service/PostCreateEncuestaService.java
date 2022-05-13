@@ -23,9 +23,9 @@ public class PostCreateEncuestaService implements PostCreateEncuestaUseCase {
         try {
             Set<JpaEncuestaProveedor> proveedores = encuestaSatisfaccion.getProveedores();
             encuestaSatisfaccion.setProveedores(null);
+            encuestaSatisfaccion.setEncuestaId(null);
             JpaEncuestaSatisfaccion response = encuestaRepository.save(encuestaSatisfaccion);
             proveedores.forEach(proveedor -> proveedor.setEncuesta(JpaEncuestaSatisfaccion.builder().encuestaId(response.getEncuestaId()).build()));
-            proveedorRepository.deleteAllByEncuestaEncuestaId(encuestaSatisfaccion.getEncuestaId());
             if(!proveedores.isEmpty()){
                 proveedorRepository.saveAll(proveedores);
             }
