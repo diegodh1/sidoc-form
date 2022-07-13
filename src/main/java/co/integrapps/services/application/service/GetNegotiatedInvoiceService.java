@@ -17,4 +17,9 @@ public class GetNegotiatedInvoiceService implements GetNegotiatedInvoiceUseCase 
     public List<JpaNegotiatedInvoiceEntity> getAllNegotiatedInvoice() {
         return negotiatedInvoiceRepository.findAll();
     }
+
+    @Override
+    public List<JpaNegotiatedInvoiceEntity> getAllByHashCode(String codehash) {
+        return negotiatedInvoiceRepository.findAllByCodehash(codehash);
+    }
 }

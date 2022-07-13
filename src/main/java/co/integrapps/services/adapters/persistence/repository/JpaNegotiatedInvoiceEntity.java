@@ -1,5 +1,6 @@
 package co.integrapps.services.adapters.persistence.repository;
 
+import co.integrapps.services.adapters.persistence.CientificNotationDoubleMapper;
 import co.integrapps.services.adapters.persistence.CientificNotationMapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -48,20 +49,20 @@ public class JpaNegotiatedInvoiceEntity implements Serializable {
     @JsonProperty("disbursement_date")
     private Date disbursementDate;
     @JsonProperty("total_amount")
-    @JsonSerialize(using= CientificNotationMapper.class)
-    private Float totalAmount;
+    @JsonSerialize(using= CientificNotationDoubleMapper.class)
+    private Double totalAmount;
     @JsonProperty("discount_total")
-    @JsonSerialize(using=CientificNotationMapper.class)
-    private Float discountTotal;
+    @JsonSerialize(using=CientificNotationDoubleMapper.class)
+    private Double discountTotal;
     @JsonProperty("value_to_funder")
-    @JsonSerialize(using=CientificNotationMapper.class)
-    private Float valueToFunder;
+    @JsonSerialize(using=CientificNotationDoubleMapper.class)
+    private Double valueToFunder;
     @JsonProperty("bar_code")
     private String barCode;
     private String codehash;
     @JsonProperty("value_margin_debtor")
-    @JsonSerialize(using=CientificNotationMapper.class)
-    private Float valueMarginDebtor;
+    @JsonSerialize(using=CientificNotationDoubleMapper.class)
+    private Double valueMarginDebtor;
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonProperty("negociation_date")
     private Date negociationDate;

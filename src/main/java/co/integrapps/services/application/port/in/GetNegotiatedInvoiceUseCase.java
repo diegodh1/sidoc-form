@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface GetNegotiatedInvoiceUseCase {
     List<JpaNegotiatedInvoiceEntity> getAllNegotiatedInvoice();
+    List<JpaNegotiatedInvoiceEntity> getAllByHashCode(String codehash);
 }

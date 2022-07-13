@@ -1,5 +1,6 @@
 package co.integrapps.services.adapters.persistence.repository;
 
+import co.integrapps.services.adapters.persistence.CientificNotationDoubleMapper;
 import co.integrapps.services.adapters.persistence.CientificNotationMapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -53,10 +54,10 @@ public class JpaInvoiceToNegotiateEntity implements Serializable {
     @JsonProperty("withholding_tax_amount")
     @JsonSerialize(using=CientificNotationMapper.class)
     private Float withholdingTaxAmount;
-    private Integer notes;
+    private Float notes;
+    @JsonSerialize(using= CientificNotationDoubleMapper.class)
     @JsonProperty("total_amount")
-    @JsonSerialize(using=CientificNotationMapper.class)
-    private Float totalAmount;
+    private Double totalAmount;
     private String comments;
     private String status;
     @JsonProperty("payment_date")
