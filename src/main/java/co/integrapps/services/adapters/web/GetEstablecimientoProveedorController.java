@@ -33,7 +33,7 @@ public class GetEstablecimientoProveedorController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<JpaEncuestaProveedor> getAllEstablecimientos(@RequestParam Integer encuesta){
+    public List<JpaEncuestaProveedor> getAll(@RequestParam Integer encuesta){
         List<JpaEncuestaProveedor> proveedores = getEstablecimientoProveedorService.getProveedores(encuesta);
         proveedores.forEach(proveedor -> proveedor.setEncuesta(null));
         return proveedores;
