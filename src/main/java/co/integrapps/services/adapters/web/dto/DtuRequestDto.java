@@ -1,5 +1,9 @@
 package co.integrapps.services.adapters.web.dto;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 public class DtuRequestDto {
     private Integer idEpt;
     private Integer idEptDoc;

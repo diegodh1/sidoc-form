@@ -20,7 +20,7 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JpaDtu {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer iddtu;
     private String dtubarcode;
     private String dtuusu;

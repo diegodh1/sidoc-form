@@ -17,7 +17,7 @@ import javax.persistence.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JpaDtuDetalle {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer iddetdtu;
     @Column(name="detdtu_iddoc")
     private Integer detDtuIdDoc;

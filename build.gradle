@@ -44,6 +44,9 @@ dependencies {
 	implementation "org.mapstruct:mapstruct:1.4.2.Final"
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+	//vavr
+	implementation group: 'io.vavr', name: 'vavr', version: '0.10.3'
+
 
 	//h2 database
 	runtimeOnly 'com.h2database:h2'
