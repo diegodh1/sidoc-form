@@ -1,9 +1,6 @@
 package co.integrapps.services.application.service;
 
-import co.integrapps.services.adapters.persistence.JpaDtu;
-import co.integrapps.services.adapters.persistence.JpaDtuDetalle;
-import co.integrapps.services.adapters.persistence.JpaDtuDetalleRepository;
-import co.integrapps.services.adapters.persistence.JpaDtuRepository;
+import co.integrapps.services.adapters.persistence.*;
 import co.integrapps.services.adapters.web.dto.DtuRequestDto;
 import co.integrapps.services.adapters.web.dto.DtuResponseDto;
 import co.integrapps.services.application.port.in.SaveDtuPort;
@@ -19,6 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Service
@@ -27,6 +25,7 @@ public class SaveDtuService implements SaveDtuPort {
     private final DtuMapper mapper;
     private final JpaDtuRepository dtuRepository;
     private final JpaDtuDetalleRepository dtuDetalleRepository;
+    private final JpaEventoRepository eventoRepository;
 
     @Override
     @Transactional(value = "transactionManager", propagation = Propagation.REQUIRES_NEW)
@@ -42,12 +41,23 @@ public class SaveDtuService implements SaveDtuPort {
         dtuDetalle.setDetDtuIdDoc(newRecord.getIddtu());
         dtuDetalle.setDetDtuCanasta("1");
         dtuDetalleRepository.save(dtuDetalle);
+        eventoRepository.save(JpaEvento.builder()
+                .username(newRecord.getDtuusu())
+                .fecha(getDate())
+                .dtuDocId(String.valueOf(newRecord.getIddtu()))
+                .tipoEvento("DTU")
+                .build());
         return new DtuResponseDto(String.format("registro realizado con éxito, dtu #%d", newRecord.getIddtu()),
                 true,
                 null);
     }
 
-    public String convertToDtuFormat(int num) {
+    private String getDate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(new Date());
+    }
+
+    private String convertToDtuFormat(int num) {
         String str = String.format("%010d", num);
         return "DTU" + str;
     }
