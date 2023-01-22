@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    @Mapping(target="username", source="idusuario")
+    @Mapping(target="username", source="strusuario")
     @Mapping(target="name", source="strnombre")
     @Mapping(target="email", source="stremail")
     LoginDataDto toDto(JpaUser source);

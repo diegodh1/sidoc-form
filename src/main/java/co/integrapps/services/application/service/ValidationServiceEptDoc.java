@@ -20,6 +20,6 @@ public class ValidationServiceEptDoc implements ValidateEptDocBarcodePort {
         if(docs.isEmpty()){
             return new EptDocValidationDto(null, "documento no válido", false);
         }
-        return new EptDocValidationDto(docs.get(0).getIdeptdoc(), "documento válido", true);
+        return new EptDocValidationDto(docs.get(0).getIdeptdoc(), null, true);
     }
 }

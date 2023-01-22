@@ -4,5 +4,10 @@
       "name": "sidoc.rest.url",
       "type": "java.lang.String",
       "description": "base url sidoc rest api"
-  }
-] }
+    },
+    {
+      "name": "spring.mvc.cors.allowed-origins",
+      "type": "java.lang.String",
+      "description": "Description for spring.mvc.cors.allowed-origins."
+    }
+  ] }
